@@ -1,4 +1,5 @@
-/*Write a program that reads a string with a max of 20 characters from the keobyard and stores it in a local string variable.
+/*@author Antonino Sauleo, Maria-Bianca Cindroi, Filip Isakovski
+Write a program that reads a string with a max of 20 characters from the keobyard and stores it in a local string variable.
 /*b) A new function void copyString(..) not using any library function.*/
 #include<stdio.h>
 #include<stdlib.h>
