@@ -23,7 +23,7 @@ int input(int list[], int number, int max)
 		{
     		list[i] = number;
     		toggle = 1;
-    	}
+    		}
 	}
 	
 	return toggle;
