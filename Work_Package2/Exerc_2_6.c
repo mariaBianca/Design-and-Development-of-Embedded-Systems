@@ -3,8 +3,6 @@
 
 #define MAX 5
 
-int list[MAX];
-
 void initQue(int list[], int max)
 {
 	int i = 0;
