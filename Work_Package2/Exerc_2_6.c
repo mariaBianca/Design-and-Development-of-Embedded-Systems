@@ -1,3 +1,23 @@
+/*
+ 
+ File name: exerc_2_6.c (or cpp)
+ 
+ Date: 2017-01-24
+ 
+ Group Number:  #nr 4
+ 
+ Members of students contributed:
+ 
+ Rafael Antonino Sauleo
+ 
+ Filip Isakovski
+ 
+ Maria-Bianca Cindroi
+ 
+ Demonstration code: [<Examen code> <xxxx>] PENDING
+ 
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 
