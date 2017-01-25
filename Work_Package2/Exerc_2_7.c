@@ -1,7 +1,7 @@
 /*
-File name: exerc_2_7.c
+File name: exerc_2_7.c 
  
- Date: 2017-01-24
+ Date: 2017-01-25
  
  Group Number:  #nr 4
  
@@ -16,62 +16,115 @@ File name: exerc_2_7.c
  Demonstration code: [<Examen code> <xxxx>] PENDING
  
  */
-#include<stdio.h>
-#include<unistd.h>
-#include<string.h>
-
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 #define MAX 10
-int validate_month(int month, char * personal_number);
-int validate_day(int day, char * personal_number);
-int replace_value(char *array, char *array_two);
 
-int main(void)
+long readPersnr(char * person);
+int validateDay(int day);
+int validateMonth(int month);
+
+int main()
 {
-	char personal_number[10];
-
-	printf("Insert your personal number:\n");
-	fgets(personal_number, MAX, stdin);
 	
-	int year = (personal_number[0] - '0') * 10 + (personal_number[1] - '0');
-	int month = (personal_number[2] - '0') * 10 + (personal_number[3] - '0');
-	while(validate_month(month, personal_number) != 0){
-		fgets(personal_number, MAX, stdin);	
-	}
+	char person[MAX];
+	char *pointer = person;	
+	long personal_number = 0;
+	char text[60] = "Introduce a personal number!";
 
-	int day = (personal_number[4] - '0') * 10+ (personal_number[5] - '0');
-	validate_day(day, personal_number);
-	while(validate_day(day, personal_number) != 0){
-		fgets(personal_number, MAX, stdin);	
+	do
+	{
+		printf("%s\n", text);
+		personal_number = readPersnr(pointer);
+		printf("%ld\n\n",personal_number);
+		if (personal_number == 2){
+			char textC[] = "The number you have introduced is invalid. Please try again!";
+			strcpy(text, textC);
+			
+		}
+		else
+		{
+			char textC[] = "Introduce a personal number!";
+			strcpy(text, textC);
+		}
 	}
-	
-		
-	printf("Year: %d\n",year);
-	printf("Month: %d\n",month);
-	printf("Day: %d\n", day);
+	while (personal_number != 1);
 
-	return 0;
+return 0;
 }
 
-int validate_month(int month, char * personal_number)
+long readPersnr(char *person){		
+	//read the user's input	
+	fgets(person, MAX, stdin);
+	long personal_number;
+
+	//check if the month and the day have valid values
+	int month = (person[2]-'0')* 10 + (person[3]-'0');
+	int day = (person[4] -'0')*10 + (person[5]-'0');
+	int checkDay = validateDay(day);
+	int checkMonth = validateMonth(month);
+
+	//check user input
+	if (person[0] == 'q')
+	{
+		personal_number = 1;
+	}
+	else if ((person[6] == '-') && (checkDay!=1)&& (checkMonth!=1))
+	{
+		int control = person[10]-'0';		
+		if(control == controlDigit(person))
+		{	
+			personal_number = 0;
+		}
+		else
+		{
+			personal_number = 2;
+		}
+	}
+	else
+	{
+		personal_number = 2;			
+	}
+
+	return personal_number;
+}
+
+int controlDigit(const char* persnr)
 {
-	if (month < 0 || month > 12){
-		printf("The month that you inserted is invalid. Please try again!\n");
+	int controlDig = (persnr[0]-'0') + (persnr[1]-'0') + (persnr[2]-'0') +
+				(persnr[3]-'0') + (persnr[4]-'0') + (persnr[5]-'0') + 
+				(persnr[7]-'0') + (persnr[8]-'0') + (persnr[9]-'0') +
+				(persnr[10]-'0');
+	controlDig = 10-(controlDig % 10);
+	return controlDig;
+}
+
+/*
+Method used to check the validity of the introduced day
+*/
+int validateDay(int day)
+{
+	if (day<0 || day > 31){
+		return 1;		
+	}
+	else
+	{	
+		return 0;
+	}
+}
+
+/*
+Method used to check the validity of the introduced month
+*/
+int validateMonth(int month)
+{
+	if (month < 0 || month > 12)
+	{
 		return 1;
 	}
 	else
 	{
-   		return 0;
-	}
-}
-
-int validate_day(int day, char * personal_number)
-{
-	if (day < 0 || day > 31){
-		printf("The day that you inserted is invalid. Please try again!\n");
-		return 1;
-	}
-    else
-	{
-   		return 0;
+		return 0;
 	}
 }
