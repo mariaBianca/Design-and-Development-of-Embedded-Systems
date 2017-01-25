@@ -15,7 +15,8 @@ File name: exerc_2_4.c (or cpp)
  
  Demonstration code: [<Examen code> <xxxx>] PENDING
  
- */#include <stdio.h>
+ */
+#include <stdio.h>
 #include <string.h>
 
 void reverse_string(char *str);
