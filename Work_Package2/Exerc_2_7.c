@@ -19,7 +19,7 @@ File name: exerc_2_7.c
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#define MAX 10
+#define MAX 9
 
 long readPersnr(char * person);
 int validateDay(int day);
@@ -37,7 +37,7 @@ int main()
 	{
 		printf("%s\n", text);
 		personal_number = readPersnr(pointer);
-		printf("%ld\n\n",personal_number);
+		//printf("%ld\n\n",personal_number);
 		if (personal_number == 2){
 			char textC[] = "The number you have introduced is invalid. Please try again!";
 			strcpy(text, textC);
@@ -70,18 +70,10 @@ long readPersnr(char *person){
 	{
 		personal_number = 1;
 	}
-	else if ((person[6] == '-') && (checkDay!=1)&& (checkMonth!=1))
+	else if ((checkDay!=1)&& (checkMonth!=1))
 	{
-		int control = person[10]-'0';		
-		if(control == controlDigit(person))
-		{	
-			personal_number = 0;
-		}
-		else
-		{
-			personal_number = 2;
-		}
-	}
+		int control = person[MAX]-'0';	
+	}	
 	else
 	{
 		personal_number = 2;			
