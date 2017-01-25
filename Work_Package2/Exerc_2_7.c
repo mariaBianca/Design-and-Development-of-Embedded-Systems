@@ -1,11 +1,21 @@
 /*
-@author Antonino Sauleo, Filip Isakovski, Maria-Bianca Cindroi
-Create a program that checks an entered Swedish person number. The number is entered in the form of :   7107254786 (yymmddxxxc).The number should be read
-in as a string and converted to integers for year, month , day and number. The last digit(here 6)is a control digit and is calculated from the other digits
-by an algorithm that you can find on the internet. The user inputs the number, the program first checks that the number of month and day is in the right 
-range and after that calculate and checks the control digit. The program then prints out the result and asks for a new person number. This is repeated until the user inputs a ‘q’. The program should at least consist of the functions: main() , readPersnr( char *person), int controlDigit( const char * persnr ).
-*/
-
+File name: exerc_2_7.c
+ 
+ Date: 2017-01-24
+ 
+ Group Number:  #nr 4
+ 
+ Members of students contributed:
+ 
+ Rafael Antonino Sauleo
+ 
+ Filip Isakovski
+ 
+ Maria-Bianca Cindroi
+ 
+ Demonstration code: [<Examen code> <xxxx>] PENDING
+ 
+ */
 #include<stdio.h>
 #include<unistd.h>
 #include<string.h>
