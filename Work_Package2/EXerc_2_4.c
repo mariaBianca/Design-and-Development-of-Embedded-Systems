@@ -1,8 +1,21 @@
 /*
-@author Maria-Bianca Cindroi, Nino Sauleo, Filip Isakovski
-
-Create a program that reads in a string and determines if the string is a palindrome. A word is a palindrome if it is the same word reading from left to right or right to left. We can assume that it is a simple strings without any space character in it.*/
-#include <stdio.h>
+File name: exerc_2_4.c (or cpp)
+ 
+ Date: 2017-01-24
+ 
+ Group Number:  #nr 4
+ 
+ Members of students contributed:
+ 
+ Rafael Antonino Sauleo
+ 
+ Filip Isakovski
+ 
+ Maria-Bianca Cindroi
+ 
+ Demonstration code: [<Examen code> <xxxx>] PENDING
+ 
+ */#include <stdio.h>
 #include <string.h>
 
 void reverse_string(char *str);
