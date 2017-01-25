@@ -1,8 +1,21 @@
 /*
-@author Antonino Sauleo, Maria-Bianca Cindroi, Filip Isakovski
-Write a program that reads a string with a max of 20 characters from the keobyard and stores it in a local string variable.
-/*b) A new function void copyString(..) not using any library function.*/
-#include<stdio.h>
+File name: exerc_2_1b.c
+ 
+ Date: 2017-01-24
+ 
+ Group Number:  #nr 4
+ 
+ Members of students contributed:
+ 
+ Rafael Antonino Sauleo
+ 
+ Filip Isakovski
+ 
+ Maria-Bianca Cindroi
+ 
+ Demonstration code: [<Examen code> <xxxx>] PENDING
+ 
+ */#include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
 
