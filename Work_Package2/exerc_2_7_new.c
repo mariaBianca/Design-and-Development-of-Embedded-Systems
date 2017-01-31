@@ -29,29 +29,6 @@
  */
 void readPersnr(char *person){
     fgets(person, MAX, stdin);
-    
-    long personalNumber = atol(person);
-    printf("personal number %ld\n", personalNumber);
-    
-    long numberOfDigits = floor(log10(abs(personalNumber))) + 1 ;
-    printf("size %ld\n", numberOfDigits);
-    
-    
-    /*
-     int potato = strlen(personalNumber);
-     printf("size of the potato %d\n", potato);
-     */
-    /*
-     int count = countDigits(person);
-     printf("count %d\n", count);
-     */
-    
-    if(person[0] == 'q'){
-        exit(0);
-    } else if (numberOfDigits !=9) {
-        printf("Input not valid!\n");
-        exit(0);
-    }
 }
 
 /*
@@ -72,22 +49,28 @@ int countDigits(const char* person){
  */
 long controlDigit(const char* person) { //algorithm MAYBE DECLARE IT AS INT
     int sum = 0;
-    //char numberInArray[0]; //another way of tranforming char to int is creating a char mini array
+    int temp = (person[0]-'0') * 2;
+    int tempSum = temp / 10 + temp % 10;
     
-    for (int i = 0; i < 10; i ++) { //This method checks the day of the personal number
-        sum = (person[i]-'0') + sum;
-        
-        /*
-         numberInArray[0] = person[i];   THIS CAN BE AN ALTERNATIVE TO SUM THE DIGITS FROM CHAR TO INT
-         printf("before sum %d\n", sum);
-         sum = atoi(numberInArray) + sum;
-         printf("after sum %d\n", sum);
-         */
-    }
+    tempSum += (person[1]-'0');
     
-    printf("sum is: %d\n", sum);
-    long controlD = 10 -(sum %10); //atol() takes a bigger number.
-    return controlD;
+    temp = (person[2]-'0') * 2;
+    tempSum += temp / 10 + temp % 10;
+    tempSum += (person[3]-'0');
+    
+    temp = (person[4]-'0') * 2;
+    tempSum += temp / 10 + temp % 10;
+    tempSum += (person[5]-'0');
+    
+    temp = (person[6]-'0') * 2;
+    tempSum += temp / 10 + temp % 10;
+    tempSum += (person[7]-'0');
+    
+    temp = (person[8]-'0') * 2;
+    tempSum += temp / 10 + temp % 10;
+    
+    sum = 10 - (tempSum % 10);
+    return sum;
 }
 
 /*
@@ -125,6 +108,7 @@ int takeMonth(char *person) {
     }
     
     int month = atoi(monthChar);
+    
     if(month>0 && month <13){
         return month;
     }
@@ -152,9 +136,8 @@ int takeYear(char *person) {
 
 int main() {
     char person[MAX];
-    char exit[1];
     char *pointer = person;
-    long personal_number;
+    int personal_number;
     int day;
     int month;
     int year;
@@ -162,22 +145,25 @@ int main() {
     do {
         printf("Introduce a personal number!\n");
         readPersnr(pointer);
-        exit[0] = person[0];
         
-        year = takeYear(pointer);
-        printf("The year of your birthday is: %d\n", year);
+        personal_number = controlDigit(pointer);//check this algorithm
+        printf("control %ld\n", personal_number); //this returns 6?
+        printf("last digit %c\n", person[9]);
         
-        month = takeMonth(pointer);
-        printf("The month of your birthday is: %d\n", month);
+        if(personal_number == (person[9] - '0')) {
+            year = takeYear(pointer);
+            printf("The year of your birthday is: %d\n", year);
+            
+            month = takeMonth(pointer);
+            printf("The month of your birthday is: %d\n", month);
+            
+            day = takeDay(pointer);
+            printf("The day of your birthday is: %d\n", day);
+        }
         
-        day = takeDay(pointer);
-        printf("The day of your birthday is: %d\n", day);
-        
-        personal_number = controlDigit(person);//check this algorithm
-        printf("%ld\n", personal_number); //this returns 6?
         fseek(stdin,0,SEEK_END); //we need to flush the input of before.
         
-    } while(exit[0] != 'q');
+    } while(person[0] != 'q');
     
     
     return 0;
