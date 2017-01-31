@@ -147,7 +147,7 @@ int main() {
         readPersnr(pointer);
         
         personal_number = controlDigit(pointer);//check this algorithm
-        printf("control %ld\n", personal_number); //this returns 6?
+        printf("control %d\n", personal_number);
         printf("last digit %c\n", person[9]);
         
         if(personal_number == (person[9] - '0')) {
@@ -162,6 +162,7 @@ int main() {
         }
         
         fseek(stdin,0,SEEK_END); //we need to flush the input of before.
+        fflush(stdin);
         
     } while(person[0] != 'q');
     
