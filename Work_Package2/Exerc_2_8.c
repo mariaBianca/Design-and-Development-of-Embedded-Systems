@@ -1,8 +1,12 @@
 /*
  *  File    : nim.c 
- *  Program : Nim game 
+ *  Program : Nim game
+ *  Author  : ...
+ */
+/*
+ File name: exerc_2_8.c
  
- Date: 2017-01-30
+ Date: 2017-02-01
  
  Group Number:  #nr 4
  
@@ -15,11 +19,8 @@
  Maria-Bianca Cindroi
  
  Demonstration code: [<Examen code> <xxxx>] PENDING
-
-
-*/
-
-
+ 
+ */
 #include<stdio.h>
 #include<stdlib.h>
 #include<stdbool.h>
@@ -94,11 +95,12 @@ int main()
 {
   int pile,			/* This is how many coins we have */
     player,			/* Who is playing? */
+    play_again_val = true,
     n_coins;			/* Number of coins taken */
   
   srand( time(0) );		/* Setup random */
 
-  printf("Välkommen till NIM by ...");
+  printf("Welcome to NIM by Group 4!\n\n");
  
  
   
@@ -108,31 +110,35 @@ int main()
   /* 
    *  Program main loop 
    */
-  while( true ) {	
+  while( play_again_val ) {	
 
-    printf("Det ligger %d  mynt i högen\n", pile );
+    printf("There are %d coins in the pile.\n", pile );
     
     if( player == HUMAN ){
       n_coins = human_choice(pile);      
     }else{
       n_coins = computer_choice(pile);
-      printf("- Jag tog %d\n", n_coins);      
+      printf("- I took %d\n", n_coins);      
     }
     pile -= n_coins;
-    player = toggle( player );
       
     if( pile <= 1 ){
-      break;
+      pile = MAX_COINS;
+      write_winner( player );  
+      play_again_val = play_again();
+      player = HUMAN;
+      if(play_again_val==false)
+	  	break;
     }
+    else{
+    	player = toggle( player );
+	}
   }
   /*
    * end main loop
    */
-   
-  write_winner( player );   
-
  
-  printf("Avslutat\n");
+  printf("Exitted!\n");
 
   return 0;
 }
@@ -153,25 +159,88 @@ void clear_stdin()
 
 int human_choice(int pile)
 {
-
+	int choice;
+	int trigger = 0;
+	while(trigger==0)
+	{
+		printf("Enter a number between 1-3, that is less than the pile:\n");
+		scanf("%d", &choice);
+		if((choice == 1 || choice == 2 || choice == 3) && choice <= pile)
+		{
+			trigger = 1;
+			return choice;
+		}
+	}
+	
+	return choice;	
 }
 
+/*
+ * computer_choice 
+ * Get computers choice (including some AI,
+ * if 4 coins or less left, function makes a 
+ * smart choice else random).
+ * in: pile
+ * out: int-value in range 1-3 (and also less than pile)
+ */
 int computer_choice(int pile)
 {
-
+	int r = (rand() % 3) + 1;
+	if(pile <= 4){
+		if(pile == 4){
+			return 3;
+		}
+		if(pile == 3){
+			return 2;
+		}
+		if(pile == 2){
+			return 1;
+		}
+	}
+	else
+	{
+		return r;
+	}
 }
 
 void write_winner(int player )
 {
-
+	if(player == HUMAN)
+		printf("Winner: HUMAN!\n");
+	else
+		printf("Winner: COMPUTER!\n");
 }
 
 int play_again()
 {
-
+	char c;
+	printf("Play again? (Y\\N)\n");
+	clear_stdin();
+	while (c = getchar()){
+		printf("Please input (Y\\N)!\n");
+		if(c=='Y' || c=='y'){
+			return true;
+		}
+		else if(c=='N' || c=='n'){
+			return false;
+		}
+		else{
+			continue;
+		}
+	}
 }
 
+/*
+ * toggle
+ * Switches player, if HUMAN in COMPUTER out
+ * etc.
+ * in:  actual player
+ * out: next player
+ */
 int toggle( int player )
 {
-
+	if(player == HUMAN)
+		return COMPUTER;
+	else
+		return HUMAN;
 }
