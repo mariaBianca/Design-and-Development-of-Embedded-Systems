@@ -13,7 +13,7 @@ File name: exerc_2_4.c (or cpp)
  
  Maria-Bianca Cindroi
  
- Demonstration code: [<Examen code> <xxxx>] PENDING
+ Demonstration code: [<Examen code> <10688>]
  
  */
 #include <stdio.h>

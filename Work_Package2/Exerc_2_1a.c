@@ -13,7 +13,7 @@ File name: exerc_2_1a.c (or cpp)
  
  Maria-Bianca Cindroi
  
- Demonstration code: [<Examen code> <xxxx>] PENDING
+ Demonstration code: [<Examen code> <10503>]
  
  */
 
@@ -30,10 +30,12 @@ int main(void){
 	printf("Enter something:");
 	fgets(text, MAX, stdin);
 
+	/*
 	while(((c=getchar())!='\n') && n==0){
 		text[n]=c;
 		n--;
 	}
+	 */
 
 	strcpy(copiedText, text);
 	printf("Text to be copied: %s\n", text);

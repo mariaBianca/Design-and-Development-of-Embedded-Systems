@@ -1,8 +1,4 @@
-/*
- *  File    : nim.c 
- *  Program : Nim game
- *  Author  : ...
- */
+
 /*
  File name: exerc_2_8.c
  
@@ -18,7 +14,7 @@
  
  Maria-Bianca Cindroi
  
- Demonstration code: [<Examen code> <xxxx>] PENDING
+ Demonstration code: [<Examen code> <10707>]
  
  */
 #include<stdio.h>

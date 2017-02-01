@@ -15,7 +15,7 @@
  
  Maria-Bianca Cindroi
  
- Demonstration code: [<Examen code> <xxxx>] PENDING
+ Demonstration code: [<Examen code> <10505>]
  
  
  Create an array of integers, array[MAX], and fill it with MAX no of random numbers. Let then the

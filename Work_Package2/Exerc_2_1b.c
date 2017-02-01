@@ -1,20 +1,20 @@
 /*
 File name: exerc_2_1b.c
- 
+
  Date: 2017-01-24
- 
+
  Group Number:  #nr 4
- 
+
  Members of students contributed:
- 
+
  Rafael Antonino Sauleo
- 
+
  Filip Isakovski
- 
+
  Maria-Bianca Cindroi
- 
- Demonstration code: [<Examen code> <xxxx>] PENDING
- 
+
+ Demonstration code: [<Examen code> <10503>]
+
  */#include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -25,7 +25,7 @@ void copyString(char* text, char* textCopied);
 int main(void){
 	char c, text[MAX], copiedText[100];
 	int n= MAX;
-	
+
 	fflush(stdin);
 	printf("Enter something:");
 	fgets(text, MAX, stdin);
@@ -39,12 +39,12 @@ int main(void){
 }
 
 void copyString(char* text, char* copiedText){
-	
+
 	int check=0;
 	while(check<=MAX){
 		copiedText[check]=text[check];
 		check++;
 	}
-	
+
 	return;
 }
