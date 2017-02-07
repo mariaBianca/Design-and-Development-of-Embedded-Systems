@@ -1,6 +1,14 @@
 /********************************************
 DIT1165 Program file exerc_3_3.c **
-2013-01-04 **
+Date: 2017-01-23
+
+Group Number:  #nr 4
+Members of students contributed:
+Rafael Antonino Sauleo
+Filip Isakovski
+Maria-Bianca Cindroi
+
+Demonstration code: [<Examen code> <0000>] PENDING
 ********************************************/
 
 #include <stdio.h>
@@ -103,17 +111,17 @@ REGTYPE* random_list(void){
 //==========================================================
 REGTYPE* add_first(REGTYPE* temp, int data){
 // Adds a record first in the list and sets the field number to data
-    REGTYPE *newNode;
-    newNode = (REGTYPE *) malloc( sizeof(REGTYPE) );
-    newNode->number = data;
-    newNode->prev = NULL;
-    newNode->next = NULL;
+    REGTYPE *new_first_node;
+    new_first_node = (REGTYPE *) malloc( sizeof(REGTYPE) );
+    new_first_node->number = data;
+    new_first_node->prev = NULL;
+    new_first_node->next = NULL;
 
     if(temp == NULL) {
-        return newNode;
+        return new_first_node;
     }
 
-    temp->prev = newNode;
-    newNode->next = temp;
-    return newNode;
+    temp->prev = new_first_node;
+    new_first_node->next = temp;
+    return new_first_node;
 }
