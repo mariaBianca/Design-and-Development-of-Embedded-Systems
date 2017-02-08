@@ -9,7 +9,25 @@ Filip Isakovski
 Maria-Bianca Cindroi
 
 Demonstration code: [<Examen code> <0000>] PENDING
-********************************************/
+*******************************************
+a) Write a function that creates a linked list 
+with 
+NUMBER 
+records of 
+type REGTYP
+E
+(see below). The 
+value of the variable data is given a random number between 0 and 100.
+Function d
+eclaration
+: 
+REGTYPE
+* random_list (void);
+Complete the program with a main program that tests the function( a first draft below).
+b) Extend the program with a function with the function declaration: REGTYP * add_first (REGTYPE* temp, int data);
+That adds a new record first in the list and assign the field numbers the value of data.
+The function must return a pointer to the new first entry in the list. Extend main so that this function is tested.
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
