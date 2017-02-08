@@ -1,8 +1,8 @@
 /*
 
- File name: exerc_3_1.c (or cpp)
+ File name: exerc_3_2a.c (or cpp)
 
- Date: 2017-01-23
+ Date: 2017-02-04
 
  Group Number:  #nr 4
 
@@ -15,16 +15,6 @@
  Maria-Bianca Cindroi
 
  Demonstration code: [<Examen code> <0000>] PENDING
-
-a) Write a function that given an integer n, an array of integers and the size of the array determines
-if n is in the array. If so the function should return the index for the first position of the number (in
-case of several) otherwise returns -1.
-For testing the function, write a main program that tests the function with help of an array initiated
-in the main program as below and with a function declaration:
-
-
-int search_number( int number, int tab[], int size);
-int test [] = { 1,2,34,5,67,3,23,12,13,10};
 
 
 b) There are a lot of ways to sort a field. For example, bubble sort which not is the fastest but easy to
