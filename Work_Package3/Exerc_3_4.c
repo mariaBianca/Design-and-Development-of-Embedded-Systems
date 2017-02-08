@@ -16,29 +16,15 @@
 
  Demonstration code: [<Examen code> <0000>] PENDING
 
-a) Write a function that given an integer n, an array of integers and the size of the array determines
-if n is in the array. If so the function should return the index for the first position of the number (in
-case of several) otherwise returns -1.
-For testing the function, write a main program that tests the function with help of an array initiated
-in the main program as below and with a function declaration:
+You should write a program for manage a database of people.  The database should be stored to the hard disc as a binary file. The function of the program is easiest to understand by reading the 
+description and program skeleton below.From the main program you should be able to choose between these options:
+1 Create a new and delete the old file.
+2 Add a new person to the file.
+3 Search for a person in the file.
+4 Print out all in the file.
+5 Exit the program.
 
-
-int search_number( int number, int tab[], int size);
-int test [] = { 1,2,34,5,67,3,23,12,13,10};
-
-
-b) There are a lot of ways to sort a field. For example, bubble sort which not is the fastest but easy to
-understand and implement. Write a sorting routine that uses the following algorithm to sort an array
-of integers.
-• Find the minimum value in the list.
-• Swap the minimum with the first in list.
-• Repeat this but exclude the previous minimum on top of the list and search only in the rest of the
-list.
-Implement the sorting function using the function declaration:
-void sort (int number, int tab []);
-Test the function by use of a main program and an initiated array as above. For checking purpose
-print out the sorted array.
-
+After entered the choice the program executes the task and returns to the menu for new choice
  */
 
 #include <stdlib.h>
