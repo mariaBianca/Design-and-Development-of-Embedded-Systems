@@ -8,7 +8,7 @@ Rafael Antonino Sauleo
 Filip Isakovski
 Maria-Bianca Cindroi
 
-Demonstration code: [<Examen code> <0000>] PENDING
+Demonstration code: [<Examen code> <20297>]
 *******************************************
 a) Write a function that creates a linked list 
 with 
