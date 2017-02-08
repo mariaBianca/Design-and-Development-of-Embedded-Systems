@@ -16,15 +16,29 @@
 
  Demonstration code: [<Examen code> <0000>] PENDING
 
-You should write a program for manage a database of people.  The database should be stored to the hard disc as a binary file. The function of the program is easiest to understand by reading the 
-description and program skeleton below.From the main program you should be able to choose between these options:
-1 Create a new and delete the old file.
-2 Add a new person to the file.
-3 Search for a person in the file.
-4 Print out all in the file.
-5 Exit the program.
+a) Write a function that given an integer n, an array of integers and the size of the array determines
+if n is in the array. If so the function should return the index for the first position of the number (in
+case of several) otherwise returns -1.
+For testing the function, write a main program that tests the function with help of an array initiated
+in the main program as below and with a function declaration:
 
-After entered the choice the program executes the task and returns to the menu for new choice
+
+int search_number( int number, int tab[], int size);
+int test [] = { 1,2,34,5,67,3,23,12,13,10};
+
+
+b) There are a lot of ways to sort a field. For example, bubble sort which not is the fastest but easy to
+understand and implement. Write a sorting routine that uses the following algorithm to sort an array
+of integers.
+• Find the minimum value in the list.
+• Swap the minimum with the first in list.
+• Repeat this but exclude the previous minimum on top of the list and search only in the rest of the
+list.
+Implement the sorting function using the function declaration:
+void sort (int number, int tab []);
+Test the function by use of a main program and an initiated array as above. For checking purpose
+print out the sorted array.
+
  */
 
 #include <stdlib.h>
@@ -52,8 +66,6 @@ typedef char Str50[50];
 PERSON *person_Collection;
 PERSON temp;
 
-int person_arraylen;
-
 
 /*
  *
@@ -65,6 +77,11 @@ enum CHOICE {
 
 char readInput(char *pointer){
     fgets(pointer, MAX, stdin);
+    char *pos;
+    if ((pos=strchr(pointer, '\n')) != NULL) {
+        *pos = '\0';
+    }
+
     fseek(stdin,0,SEEK_END); //we need to flush the input of before.
     fflush(stdin);
 }
@@ -139,7 +156,6 @@ static void init_tempPerson() {
     strcpy(temp.firstname, "");
     strcpy(temp.famnamne, "");
     strcpy(temp.pers_number, "");
-
 }
 
 //change it to PERSON input_record( void);
@@ -230,15 +246,34 @@ void display_collection() {
     }
 }
 
+
+void deleteFile(){
+    int status;
+    status = remove(filename);
+
+    if( status == 0 )
+        printf("%s file deleted successfully.\n",filename);
+    else
+    {
+        printf("Unable to delete the file\n");
+        perror("Error");
+    }
+}
+
+
 void searchPersonName(char *name){
-    int i;
+    int i =0;
     int numrecs;
+    char *ptrtostr;
+
     PERSON thisperson;
 
     numrecs = load_collection(filename);
+
     for (i = 0; i < numrecs; i++) {
         thisperson = person_Collection[i];
-        if(name == thisperson.firstname) {
+        ptrtostr = strstr(person_Collection[i].firstname, name);
+        if(ptrtostr != NULL) {
             printf("Name: '%s' Collection at %d \n", thisperson.firstname, i);
         }
     }
@@ -246,14 +281,18 @@ void searchPersonName(char *name){
 
 
 void searchPersonLastName(char *name){
-    int i;
+    int i =0;
     int numrecs;
+    char *ptrtostr;
+
     PERSON thisperson;
 
     numrecs = load_collection(filename);
+
     for (i = 0; i < numrecs; i++) {
         thisperson = person_Collection[i];
-        if(name == thisperson.famnamne) {
+        ptrtostr = strstr(person_Collection[i].famnamne, name);
+        if(ptrtostr != NULL) {
             printf("Name: '%s' Collection at %d \n", thisperson.famnamne, i);
         }
     }
@@ -267,6 +306,7 @@ void choose_SEARCH(enum CHOICE command) {
             char userInput[MAX];
             char *userPointer = userInput;
             readInput(userPointer);
+            //printf("%s\n", userPointer);
             searchPersonName(userInput);
             break;
         case TWO:
@@ -274,7 +314,7 @@ void choose_SEARCH(enum CHOICE command) {
             char userInputLast[MAX];
             char *userPointer2 = userInputLast;
             readInput(userPointer2);
-            searchPersonName(userInputLast);
+            searchPersonLastName(userInputLast);
             break;
         default:
             printf("INPUT ERROR \n");
@@ -288,6 +328,7 @@ void choose_Command(enum CHOICE command){
         case ONE:
             printf("ONE \n");
             //create method delete binary/clear
+            deleteFile(filename);
             add_person(filename);
             break;
         case TWO:
@@ -321,7 +362,6 @@ void choose_Command(enum CHOICE command){
             exit(0);
             break;
     }
-
 }
 
 int main(int argc, char **argv) {
@@ -343,10 +383,6 @@ int main(int argc, char **argv) {
         choose_Command(userchoice);
 
     }
-
-
-
-
 
     return(0);
 }
