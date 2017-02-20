@@ -5,9 +5,16 @@
 
 
 /*
- *
- *
- * Pack and unpack variables into a byte. You need to store 4 different values in a byte. The values are:
+ File name: exerc_4_1.c
+ Date: 2017-02-02
+ Group Number:  #nr 4
+ Members of students contributed:
+ Rafael Antonino Sauleo
+ Filip Isakovski
+ Maria-Bianca Cindroi
+ Demonstration code: [<Examen code> <XXXXX>]
+ 
+ Pack and unpack variables into a byte. You need to store 4 different values in a byte. The values are:
  Name Range Bits Info
  engine_on 0..1 1 Is engine on or off
  gear_pos 0..4 3 What gear position do we have
