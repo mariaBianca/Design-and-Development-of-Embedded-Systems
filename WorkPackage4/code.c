@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
 
-
 /*
  File name: code.c
  Date: 2017-02-02
