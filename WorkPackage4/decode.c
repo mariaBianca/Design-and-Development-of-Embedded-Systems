@@ -39,7 +39,7 @@ int main(int argc, char **argv ) {
 //        printf("Decode argc=%d arg %d is %s\n", argc, j, argv[j]);
 //    }
 
-    if(argc < 2 || argc > 2 || (strlen(argv[1])>2)){
+    if(argc < 2 || argc > 2){
         printf("Error");
         exit(2);
     }
@@ -103,7 +103,7 @@ int main(int argc, char **argv ) {
     printf("\nName   -----   Value \n");
     printf("---------------------");
     s.engine_on = k>>7;
-    printf("\nengine_on is\t%d\n", s.engine_on);
+    printf("\nengine_on is\t\t%d\n", s.engine_on);
     s.gear_pos = k>>4;
     printf("gear_pos is\t\t%d\n", s.gear_pos);
     s.key_pos = k>>2;
