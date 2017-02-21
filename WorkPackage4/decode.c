@@ -5,21 +5,21 @@
 
 
 /*
-
+ 
  File name: decode.c (or cpp)
-
+ 
  Date: 2017-02-20
-
+ 
  Group Number:  #nr 4
-
+ 
  Members of students contributed:
-
+ 
  Rafael Antonino Sauleo
-
+ 
  Filip Isakovski
-
+ 
  Maria-Bianca Cindroi
-
+ 
  Demonstration code: [<Examen code> <PENDING>]
  */
 
@@ -34,18 +34,18 @@ struct {
 
 
 int main(int argc, char **argv ) {
-
-//    for (int j = 0; j < argc; j++) {
-//        printf("Decode argc=%d arg %d is %s\n", argc, j, argv[j]);
-//    }
-
-    if(argc < 2 || argc > 2){
+    
+    //    for (int j = 0; j < argc; j++) {
+    //        printf("Decode argc=%d arg %d is %s\n", argc, j, argv[j]);
+    //    }
+    
+    if(argc < 2 || argc > 2 ||(strlen(argv[1])>2)){
         printf("Error");
         exit(2);
     }
-
+    
     printf("Binary form is : ");
-
+    
     unsigned int k = 0;
     switch(*(argv[1] + 0)){
         case '0': k|= (0<<4); printf("0000"); break; //int 0
@@ -72,8 +72,8 @@ int main(int argc, char **argv ) {
         case 'f': k|= (15<<4); printf("1111"); break; //int 15
         default:  printf("\nInvalid hexadecimal digit %s \n",argv[1]); exit(2);
     }
-
-
+    
+    
     switch(*(argv[1] + 1)){
         case '0': k|= (0<<0); printf("0000"); break; //int 0
         case '1': k|= (1<<0); printf("0001"); break; //int 1
@@ -99,7 +99,7 @@ int main(int argc, char **argv ) {
         case 'f': k|= (15<<0); printf("1111"); break; //int 15
         default:  printf("\nInvalid hexadecimal digit %s \n",argv[1]); exit(2);
     }
-
+    
     printf("\nName   -----   Value \n");
     printf("---------------------");
     s.engine_on = k>>7;
@@ -112,7 +112,7 @@ int main(int argc, char **argv ) {
     printf("brake1 is\t\t%d\n", s.brake1);
     s.brake2 = k>>0;
     printf("brake2 is\t\t%d\n", s.brake2);
-
-
+    
+    
     return 0;
 }
