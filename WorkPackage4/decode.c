@@ -39,7 +39,7 @@ int main(int argc, char **argv ) {
 //        printf("Decode argc=%d arg %d is %s\n", argc, j, argv[j]);
 //    }
 
-    if(argc < 2 || 1 argc > 2 || (strlen(argv[1])>2)){
+    if(argc < 2 || argc > 2 || (strlen(argv[1])>2)){
         printf("Error");
         exit(2);
     }
