@@ -5,26 +5,26 @@
 
 
 /*
- 
- File name: exerc_4_2a.c (or cpp)
- 
+
+ File name: decode.c (or cpp)
+
  Date: 2017-02-20
- 
+
  Group Number:  #nr 4
- 
+
  Members of students contributed:
- 
+
  Rafael Antonino Sauleo
- 
+
  Filip Isakovski
- 
+
  Maria-Bianca Cindroi
- 
+
  Demonstration code: [<Examen code> <PENDING>]
  */
 
 
-struct s1 {
+struct {
     unsigned char engine_on : 1;
     unsigned char gear_pos : 3;
     unsigned char key_pos : 2;
@@ -34,18 +34,18 @@ struct s1 {
 
 
 int main(int argc, char **argv ) {
-    
-    for (int j = 0; j < argc; j++) {
-        printf("Decode argc=%d arg %d is %s\n", argc, j, argv[j]);
-    }
-    
+
+//    for (int j = 0; j < argc; j++) {
+//        printf("Decode argc=%d arg %d is %s\n", argc, j, argv[j]);
+//    }
+
     if(argc > 2 || (strlen(argv[1])>2)){
         printf("Error");
         exit(2);
     }
-    
+
     printf("Binary form is : ");
-    
+
     unsigned int k = 0;
     switch(*(argv[1] + 0)){
         case '0': k|= (0<<4); printf("0000"); break; //int 0
@@ -72,8 +72,8 @@ int main(int argc, char **argv ) {
         case 'f': k|= (15<<4); printf("1111"); break; //int 15
         default:  printf("\nInvalid hexadecimal digit %s \n",argv[1]); exit(2);
     }
-    
-    
+
+
     switch(*(argv[1] + 1)){
         case '0': k|= (0<<0); printf("0000"); break; //int 0
         case '1': k|= (1<<0); printf("0001"); break; //int 1
@@ -99,20 +99,20 @@ int main(int argc, char **argv ) {
         case 'f': k|= (15<<0); printf("1111"); break; //int 15
         default:  printf("\nInvalid hexadecimal digit %s \n",argv[1]); exit(2);
     }
-    
+
     printf("\nName   -----   Value \n");
     printf("---------------------");
     s.engine_on = k>>7;
-    printf("\nengine_on is %d\n", s.engine_on);
+    printf("\nengine_on is\t%d\n", s.engine_on);
     s.gear_pos = k>>4;
-    printf("gear_pos is %d\n", s.gear_pos);
+    printf("gear_pos is\t\t%d\n", s.gear_pos);
     s.key_pos = k>>2;
-    printf("key_pos is %d\n", s.key_pos);
+    printf("key_pos is\t\t%d\n", s.key_pos);
     s.brake1 = k>>1;
-    printf("brake1 is %d\n", s.brake1);
+    printf("brake1 is\t\t%d\n", s.brake1);
     s.brake2 = k>>0;
-    printf("brake2 is %d\n", s.brake2);
-    
-    
+    printf("brake2 is\t\t%d\n", s.brake2);
+
+
     return 0;
 }
