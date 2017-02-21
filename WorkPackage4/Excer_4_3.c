@@ -1,26 +1,26 @@
 /* *******************************
-Program file : bit_manage_function.c
-Peter Lundin / 2016-01-97
-For test IO program function
-
-******************************** */
+ Program file : bit_manage_function.c
+ Peter Lundin / 2016-01-97
+ For test IO program function
+ 
+ ******************************** */
 
 /*
-
+ 
  File name: exerc_4_3a.c (or cpp)
-
+ 
  Date: 2017-02-20
-
+ 
  Group Number:  #nr 4
-
+ 
  Members of students contributed:
-
+ 
  Rafael Antonino Sauleo
-
+ 
  Filip Isakovski
-
+ 
  Maria-Bianca Cindroi
-
+ 
  Demonstration code: [<Examen code> <PENDING>]
  */
 
@@ -37,7 +37,7 @@ struct s1 {
 } s;
 
 int main(){
-    int nr;
+    int nr=0;
     unsigned char port;
     srand(time(0));
     unsigned int k = 0;
@@ -45,24 +45,26 @@ int main(){
     s.fourthbit = port>>3;
     printf("Inbit 4 is %d ", s.fourthbit);
     printport(port);
-    for ( nr=1; nr < 10; nr++){
+    f_delay(5);
+    //for ( nr=1; nr < 10; nr++){
+    while(nr == 0){
         port = random_inport();
         printport( port);
         f_delay(5);
     }
-    return(0);
+    
 }
 
 
 void f_delay( int tenth_sec){
-
+    
     clock_t start_t, end_t;
     long int i;
     start_t = clock();
     do{
         for(i=0; i< 10000000; i++);
         end_t = clock();
-    }while ((end_t - start_t) < (tenth_sec*CLOCKS_PER_SEC)/10);
+    }while ((end_t - start_t) < (tenth_sec*CLOCKS_PER_SEC)/2);
     return;
 }
 
@@ -78,7 +80,7 @@ unsigned char random_inport( void){
         //printf("after inport% d \n", k);
         return (k);
     }
-
+    
     return (inport);
 }
 
