@@ -53,7 +53,9 @@ int main(int argc, char **argv ) {
     s.brake1 = (unsigned char) (*argv[4] - '0');
     s.brake2 = (unsigned char) (*argv[5] - '0');
 
-    if(s.engine_on > 1 || s.gear_pos > 4 || s.key_pos > 2 || s.brake1 > 1 || s.brake2 > 1){
+    if((s.engine_on != 1 && s.engine_on != 0) || (s.gear_pos != 4 && s.gear_pos != 3  && 
+       s.gear_pos != 2 && s.gear_pos != 1 && s.gear_pos != 0) || (s.key_pos != 2 && s.key_pos != 1 && s.key_pos != 0) || 
+       (s.brake1 != 1 && s.brake1 != 0) || (s.brake2 != 1 && s.brake2 != 0)){
         printf("error");
         exit(2);
     }
