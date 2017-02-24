@@ -1,12 +1,18 @@
 #include <LEDDisplay2.h>
 /**
-* @author: Group 4 and Group 5
+* File name: WorkPackage.5 (or cpp)
+* Date: 2017-02-20
+* Group Number:  #nr 4 #nr 5
+* Members of students that contributed: 
 * Aseel Naji
 * Maria-Bianca Cindroi
 * Johan Johansson
 * Antonino Sauleo
 * Filip Isakovski
-* Yu Jet4
+* Yu Jet Hua
+* 
+* Demonstration code: [<Examen code> <15049>]
+* Demonstration code: [<Examen code> <15101>]
 * 15049
 * 15101
 **/                                          
