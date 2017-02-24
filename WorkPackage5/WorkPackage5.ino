@@ -34,9 +34,9 @@ void setup()
 {
     Serial.begin(9600);
     
-    int digitFlagPins[] = {10, 11};
-    int segmentPins[] = {2, 3, 4, 5 ,6 ,7 ,8, 9};
-    int decimalPointPin = 9;
+    int digitFlagPins[] = {10, 11}; //not used
+    int segmentPins[] = {2, 3, 4, 5 ,6 ,7 ,8, 9}; //pin 9 not used, come from the library that was used
+    int decimalPointPin = 9; //not used
     led = new LEDDisplay2(2, digitFlagPins, segmentPins, decimalPointPin);
     
 }
@@ -77,9 +77,8 @@ void read_display_temp()
 {
       int reading = analogRead(tempPin);  
  
-     // converting that reading to voltage.
-     int mv = reading * 500 / 1024;
-     cel = mv;///10;
+     // converting the reading from the temp input to voltage.
+     int cel = reading * 500 / 1024;
     
     Serial.print(cel); Serial.println(" degrees C"); 
     
